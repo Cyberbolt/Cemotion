@@ -48,7 +48,7 @@ class Cemotion:
             #获取预测值  预测一个值时使用predict_on_batch
             prediction = self.__rnn.predict_on_batch(self.__dataset.data_to_train(list_text))[0][0]
             
-            return round(prediction, 4)
+            return round(prediction, 6)
         
         #输入列容为列表时 返回 带正负概率的列表
         elif type(text) == type(['list mode']) or type(text) == type(np.array(['list mode'])):
@@ -63,6 +63,6 @@ class Cemotion:
             list_new = [] #第一列保存文字，第二列保存文字对应的情感
             #生成新表
             for one, two in zip(list_text, prediction):
-                list_new.append([one, round(two[0], 4)])
+                list_new.append([one, round(two[0], 6)])
                 
             return list_new
