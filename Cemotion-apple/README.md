@@ -9,7 +9,7 @@ Cemotion的模型经循环神经网络训练得到，会为 中文文本 返回 
 ### 安装方法
 
 前提:
-根据 [https://www.cyberlight.xyz/passage/tensorflow-apple-m1](url) 此文方法安装ARM Python和TensorFlow（TensorFlow需要装到conda虚拟环境中，通读全文后，请使用文章末尾的方法安装TensorFlow）
+根据 [https://www.cyberlight.xyz/passage/tensorflow-apple-m1](https://www.cyberlight.xyz/passage/tensorflow-apple-m1) 此文方法安装ARM Python和TensorFlow（TensorFlow需要装到conda虚拟环境中，通读全文后，请使用文章末尾的方法安装TensorFlow）
 
 此时，我们假定您已安装相关环境，并创建了名为py38的conda虚拟环境
 
@@ -41,9 +41,9 @@ print(c.predict(str_text))
 
 
 ```
-返回内容:
+#返回内容(该模块返回了这句话的情感置信度，值在0到1之间):
 text mode
-0.7465
+0.9999
 ```
 
 
@@ -60,8 +60,8 @@ print(c.predict(list_text))
 
 
 ```
-返回内容:
+#返回内容(该模块返回了列表中每句话的情感置信度，值在0到1之间):
 list mode
-[['内饰蛮年轻的，而且看上去质感都蛮好，貌似本田所有车都有点相似，满高档的！', 0.7465], ['总而言之，是一家不会再去的店。', 0.7457]]
+[['内饰蛮年轻的，而且看上去质感都蛮好，貌似本田所有车都有点相似，满高档的！', 0.9999], 
+ ['总而言之，是一家不会再去的店。', 0.049]]
 ```
-
