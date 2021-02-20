@@ -19,7 +19,7 @@ python3 -m venv venv #创建虚拟环境
 
 附:Apple Silicon安装方法
 
-Apple Silicon请参考 [https://pypi.org/project/Cemotion-apple/](url) 此文档安装
+Apple Silicon请参考 [https://pypi.org/project/Cemotion-apple/](https://pypi.org/project/Cemotion-apple/) 此文档安装
 
 
 Windows:
@@ -50,9 +50,9 @@ print(c.predict(str_text))
 
 
 ```
-返回内容:
+#返回内容(该模块返回了这句话的情感置信度，值在0到1之间):
 text mode
-0.7465
+0.9999
 ```
 
 
@@ -69,8 +69,8 @@ print(c.predict(list_text))
 
 
 ```
-返回内容:
+#返回内容(该模块返回了列表中每句话的情感置信度，值在0到1之间):
 list mode
-[['内饰蛮年轻的，而且看上去质感都蛮好，貌似本田所有车都有点相似，满高档的！', 0.7465], ['总而言之，是一家不会再去的店。', 0.7457]]
+[['内饰蛮年轻的，而且看上去质感都蛮好，貌似本田所有车都有点相似，满高档的！', 0.9999], 
+ ['总而言之，是一家不会再去的店。', 0.049]]
 ```
-
