@@ -1,0 +1,6 @@
+tqdm==4.56.0
+joblib==1.0.0
+requests==2.25.1
+jieba==0.42.1
+numpy==1.19.5
+tensorflow==2.4.1
