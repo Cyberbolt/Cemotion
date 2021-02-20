@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Cemotion",
-    version="0.2.1",
+    version="0.2.2",
     author="Cyberbolt",
     author_email="735245473@qq.com",
     description="基于NLP的中文情感倾向分析库",

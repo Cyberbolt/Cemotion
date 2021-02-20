@@ -19,7 +19,7 @@ python3 -m venv venv #创建虚拟环境
 
 附:Apple Silicon安装方法
 
-Apple Silicon请参考 [https://pypi.org/project/Cemotion-apple/](url) 此文档安装
+Apple Silicon请参考 [https://pypi.org/project/Cemotion-apple/](https://pypi.org/project/Cemotion-apple/) 此文档安装
 
 
 Windows:
