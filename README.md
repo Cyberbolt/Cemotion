@@ -76,4 +76,5 @@ list mode
 ```
 
 如果该模块对您有帮助，感谢Star🙏！
+
 电光笔记官网 [https://www.cyberlight.xyz/](https://www.cyberlight.xyz/)
