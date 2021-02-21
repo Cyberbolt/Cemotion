@@ -43,7 +43,7 @@ class Cemotion:
     def predict(self, text):
         #输入内容为文字时 返回 正负概率
         if type(text) == type('text mode'):
-            print('text mode')
+            # print('text mode')
             list_text = [text] #将文本转为列表
             #获取预测值  预测一个值时使用predict_on_batch
             prediction = self.__rnn.predict_on_batch(self.__dataset.data_to_train(list_text))[0][0]
@@ -56,7 +56,7 @@ class Cemotion:
             if type(text) == type(np.array(['list mode'])):
                 text = text.tolist()
             
-            print('list mode')
+            # print('list mode')
             list_text = text
             prediction = self.__rnn.predict(self.__dataset.data_to_train(list_text))
             
