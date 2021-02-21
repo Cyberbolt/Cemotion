@@ -70,8 +70,10 @@ text mode
 ```
 #使用列表进行批量分析
 from cemotion import Cemotion
+
 list_text = ['内饰蛮年轻的，而且看上去质感都蛮好，貌似本田所有车都有点相似，满高档的！',
 '总而言之，是一家不会再去的店。']
+
 c = Cemotion()
 print(c.predict(list_text))
 ```
