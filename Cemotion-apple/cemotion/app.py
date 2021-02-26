@@ -21,7 +21,8 @@ def check_env(url, path):
     if os.path.exists(path):
         return
     else:
-        print('Downloading the required environment, Please wait.')
+        print('Downloading the required environment, Please wait.\
+              \nIf you are using China Telecom, you may only get faster download speeds during the day.')
         download_from_url(url, path)
 
 
@@ -33,8 +34,20 @@ class Cemotion:
         #保存中文词典路径
         dictionary_path = current_path + '/models/requirements/big_Chinese_Words_Map.dict'        
         #检测所需文件是否存在，判断是否下载
-        check_env('https://www.cyberlight.xyz/static/file/cemotion/big_Chinese_Words_Map.dict', dictionary_path)
-        check_env('https://www.cyberlight.xyz/static/file/cemotion/rnn_emotion_1.0.h5', model_path)
+        #若主链接无法使用，使用备用链接
+        try:
+            check_env('https://onedrive.gimhoy.com/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBaVdOR2ZlUEx6NWszUVJVdGhaQWZJNVROVTlSP2U9b2pJOEtF.dict', 
+                  dictionary_path)
+        except:
+            check_env('https://www.cyberlight.xyz/static/file/cemotion/big_Chinese_Words_Map.dict', 
+                  dictionary_path)
+        #若主链接无法使用，使用备用链接
+        try:
+            check_env('https://onedrive.gimhoy.com/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBaVdOR2ZlUEx6NWttbEpoTDU0UFRhUmZSbzhNP2U9czhWcVE3.h5', 
+                      model_path)
+        except:
+            check_env('https://www.cyberlight.xyz/static/file/cemotion/rnn_emotion_1.0.h5', 
+                      model_path)
         #加载rnn模型
         self.__rnn = tf.keras.models.load_model(model_path)
         #加载数据集实例

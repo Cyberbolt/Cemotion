@@ -24,6 +24,7 @@ def download_from_url(url, dst):
     except Exception as e:
         print(e)
         print("错误，访问url: %s 异常" % url)
+        raise 'file not exit'
         return False
 
     # 判断本地文件存在时
@@ -48,7 +49,7 @@ def download_from_url(url, dst):
     header = {"Range": "bytes=%s-%s" % (first_byte, file_size)}
     pbar = tqdm(
         total=file_size, initial=first_byte,
-        unit='B', unit_scale=True, desc=url.split('/')[-1])
+        unit='B', unit_scale=True, desc=dst.split('/')[-1])
 
     # 访问url进行下载
     req = requests.get(url, headers=headers, stream=True)
