@@ -29,7 +29,7 @@ python -m venv venv #创建虚拟环境
 venv\Scripts\activate #激活虚拟环境
 ```
 
-2.安装cemotion库，依次输入
+2.安装Cemotion库，依次输入
 
 ```
 pip install --upgrade pip

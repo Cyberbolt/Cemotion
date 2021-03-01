@@ -22,7 +22,7 @@ conda install scikit-learn #安装scikit-learn
 ```
 
 
-之后输入以下命令安装cemotion
+之后输入以下命令安装Cemotion
 ```
 pip install --upgrade pip
 pip install cemotion-apple

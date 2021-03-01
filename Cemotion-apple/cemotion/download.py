@@ -22,8 +22,7 @@ def download_from_url(url, dst):
         file = Request(url,headers=headers)
         file_size = int(urlopen(file).info().get('Content-Length', -1))
     except Exception as e:
-        print(e)
-        print("错误，访问url: %s 异常" % url)
+        print("Error downloading. Trying again.")
         raise 'file not exit'
         return False
 
