@@ -1,6 +1,6 @@
 Cemotion是Python下的中文NLP库，可以进行 中文情感倾向分析。
 
-Cemotion的模型经循环神经网络训练得到，会为 中文文本 返回 0～1之间的 情感倾向置信度。您可以批量分析中文文本的情感，并部署至Linux、Mac OS、Windows等生产环境中，无需关注内部原理。
+Cemotion的模型经循环神经网络训练得到，会为 中文文本 返回 0～1之间的 情感倾向置信度。您可以批量分析中文文本的情感，并部署至Linux、macOS、Windows等生产环境中，无需关注内部原理。
 
 该模块供Apple Silicon使用，已经过M1测试。请按该文档安装ARM Python、TensorFlow、scikit-learn环境。
 

@@ -30,7 +30,7 @@ class Cemotion:
     def __init__(self):
         current_path = os.path.dirname(__file__) #当前模块的路径
         #保存模型的路径
-        model_path = current_path + '/models/rnn_emotion_1.0.h5'
+        model_path = current_path + '/models/rnn_emotion_x86_1.0.h5'
         #保存中文词典路径
         dictionary_path = current_path + '/models/requirements/big_Chinese_Words_Map.dict'        
         #检测所需文件是否存在，判断是否下载
@@ -43,10 +43,10 @@ class Cemotion:
                   dictionary_path)
         #若主链接无法使用，使用备用链接
         try:
-            check_env('https://onedrive.gimhoy.com/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBaVdOR2ZlUEx6NWttbEpoTDU0UFRhUmZSbzhNP2U9czhWcVE3.h5', 
+            check_env('https://onedrive.gimhoy.com/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBaVdOR2ZlUEx6NWszVndYZ2I3SmJQdDR6b0pqP2U9UjlzZmRR.h5', 
                       model_path)
         except:
-            check_env('https://www.cyberlight.xyz/static/file/cemotion/rnn_emotion_1.0.h5', 
+            check_env('https://www.cyberlight.xyz/static/file/cemotion/rnn_emotion_x86_1.0.h5', 
                       model_path)
         #加载rnn模型
         self.__rnn = tf.keras.models.load_model(model_path)
