@@ -2,7 +2,6 @@
     用于文件下载
 '''
 
-import requests
 import os
 from urllib.request import urlopen, Request
 

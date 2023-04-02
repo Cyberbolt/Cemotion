@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Cemotion",
-    version="0.3.3",
+    version="2.0",
     author="Cyberbolt",
     author_email="735245473@qq.com",
     description="基于NLP的中文情感倾向分析库",
@@ -19,11 +19,11 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        'tqdm>=4.56.0',
+        'tqdm>=4.64.1',
         'joblib>=1.0.0',
         'requests>=2.25.1',
         'numpy>=1.19.5',
-        'jieba>=0.42.1',
-        'tensorflow-cpu>=2.4.0',
+        'torch>=2.0.0',
+        'transformers>=4.24.0',
     ]    
 )
