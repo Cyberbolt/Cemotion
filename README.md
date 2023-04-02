@@ -6,7 +6,7 @@ Cemotion 2.0 模型使用 BERT (Bidirectional Encoder Representations from Trans
 - 批量分析中文文本的情感
 - 部署至 Linux、macOS、Windows 等生产环境中 (支持 Apple Silicon)
 
-该模块依赖于 PyTorch 环境（会自动安装），较老的机器可能无法运行。
+该模块依赖于 PyTorch 环境（会自动安装），要求 Python 3.8 或更高版本，较老的机器可能无法运行。
 
 ### 安装方法
 

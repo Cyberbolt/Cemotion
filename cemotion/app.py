@@ -43,7 +43,7 @@ class SentimentClassifier(torch.nn.Module):
 
 # 定义从本地读取模型的函数
 def load_model(model, path):
-    model.load_state_dict(torch.load(path))
+    model.load_state_dict(torch.load(path, map_location=torch.device('cpu')))
     return model
 
 

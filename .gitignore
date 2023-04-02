@@ -1,6 +1,7 @@
 #自定义忽略
 *.h5
 *.pt
+.cemotion_cache
 *test.py
 */dist/
 */Cemotion.egg-info/
