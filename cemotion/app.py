@@ -16,13 +16,15 @@ tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
 
 
 # 检测所需文件是否存在，不存在则下载
-def check_env(url, path):
-    if os.path.exists(path):
+def check_env(url):
+    if not os.path.exists('.cemotion_cache'):
+        os.mkdir('.cemotion_cache')
+    if os.path.exists('.cemotion_cache/cemotion_2.0.pt'):
         return
     else:
         print('Downloading the required environment, Please wait.\
               \nIf you are using China Telecom, you may only get faster download speeds during the day.')
-        download_from_url(url, path)
+        download_from_url(url, '.cemotion_cache/cemotion_2.0.pt')
 
 
 # 定义模型
@@ -47,14 +49,11 @@ def load_model(model, path):
 
 class Cemotion:
     def __init__(self):
-        # 保存模型的路径
-        model_path = 'cemotion_2.0.pt'
         #检测所需文件是否存在，判断是否下载
-        check_env('https://github.com/Cyberbolt/Cemotion/releases/download/2.0/cemotion_2.0.pt',
-                    model_path)
+        check_env('https://github.com/Cyberbolt/Cemotion/releases/download/2.0/cemotion_2.0.pt')
         # 加载模型
         model = SentimentClassifier(num_classes=1)
-        self.model = load_model(model, model_path)
+        self.model = load_model(model, '.cemotion_cache/cemotion_2.0.pt')
         self.device = torch.device('cpu')
 
     def predict(self, text):
