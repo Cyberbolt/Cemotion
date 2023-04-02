@@ -8,6 +8,11 @@ Cemotion 2.0 模型使用 BERT (Bidirectional Encoder Representations from Trans
 
 该模块依赖于 PyTorch 环境（会自动安装），较老的机器可能无法运行。
 
+### 链接
+
+- GitHub https://github.com/Cyberbolt/Cemotion
+- 电光笔记 https://www.cyberlight.xyz/
+
 ### 安装方法
 
 1.进入命令窗口，创建虚拟环境，依次输入以下命令
