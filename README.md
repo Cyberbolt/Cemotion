@@ -19,27 +19,27 @@ Cemotion 2.0 模型使用 BERT (Bidirectional Encoder Representations from Trans
 
 Linux 和 macOS:
 
-```
+```bash
 python3 -m venv venv #创建虚拟环境
 . venv/bin/activate #激活虚拟环境
 ```
 
 Windows:
 
-```
+```bash
 python -m venv venv #创建虚拟环境
 venv\Scripts\activate #激活虚拟环境
 ```
 
 2.安装Cemotion库，依次输入
 
-```
+```bash
 pip install --upgrade pip
 pip install cemotion
 ```
 
 ### 使用方法
-```
+```python
 #按文本字符串分析
 from cemotion import Cemotion
 
@@ -64,7 +64,7 @@ print('"', str_text2 , '"\n' , '预测值:{:6f}'.format(c.predict(str_text2) ) ,
 
 
 
-```
+```python
 #使用列表进行批量分析
 from cemotion import Cemotion
 
