@@ -3,4 +3,4 @@ joblib>=1.0.0
 requests>=2.25.1
 numpy>=1.19.5
 torch>=2.0.0
-transformers>=4.24.0
+transformers==4.24.0
