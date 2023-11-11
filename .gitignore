@@ -2,6 +2,7 @@
 *.h5
 *.pt
 .cemotion_cache
+test.ipynb
 *test.py
 */dist/
 */Cemotion.egg-info/

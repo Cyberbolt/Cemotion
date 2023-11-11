@@ -42,8 +42,8 @@ class SentimentClassifier(torch.nn.Module):
 
 
 # 定义从本地读取模型的函数
-def load_model(model, path):
-    model.load_state_dict(torch.load(path, map_location=torch.device('cpu')))
+def load_model(model, path, device):
+    model.load_state_dict(torch.load(path, map_location=torch.device(device)))
     return model
 
 
@@ -51,17 +51,20 @@ class Cemotion:
     def __init__(self):
         #检测所需文件是否存在，判断是否下载
         check_env('https://github.com/Cyberbolt/Cemotion/releases/download/2.0/cemotion_2.0.pt')
-        # 加载模型
-        model = SentimentClassifier(num_classes=1)
-        self.model = load_model(model, '.cemotion_cache/cemotion_2.0.pt')
+
+        # 检测 GPU
         if torch.cuda.is_available():
             device = torch.device('cuda')
         elif torch.backends.mps.is_available():
             device = torch.device('mps')
         else:
             device = torch.device('cpu')
-        self.device = torch.device(device)
+        
+        # 加载模型
+        model = SentimentClassifier(num_classes=1)
+        self.model = load_model(model, '.cemotion_cache/cemotion_2.0.pt', device)
         self.model.to(device)
+        self.device = device
 
     def predict(self, text):
         # 输入内容为文字时 返回 正负概率
