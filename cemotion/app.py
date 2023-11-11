@@ -54,7 +54,14 @@ class Cemotion:
         # 加载模型
         model = SentimentClassifier(num_classes=1)
         self.model = load_model(model, '.cemotion_cache/cemotion_2.0.pt')
-        self.device = torch.device('cpu')
+        if torch.cuda.is_available():
+            device = torch.device('cuda')
+        elif torch.backends.mps.is_available():
+            device = torch.device('mps')
+        else:
+            device = torch.device('cpu')
+        self.device = torch.device(device)
+        self.model.to(device)
 
     def predict(self, text):
         # 输入内容为文字时 返回 正负概率

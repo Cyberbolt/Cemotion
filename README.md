@@ -8,6 +8,8 @@ Cemotion 2.0 模型使用 BERT (Bidirectional Encoder Representations from Trans
 
 该模块依赖于 PyTorch 环境（会自动安装），要求 Python 3.8 或更高版本，较老的机器可能无法运行。
 
+注意，Cemotion 会自动调用 NVIDIA 和 Apple Silicon 的 GPU。如果没有 GPU，则使用 CPU 推理。
+
 ### 安装方法
 
 1.进入命令窗口，创建虚拟环境，依次输入以下命令
