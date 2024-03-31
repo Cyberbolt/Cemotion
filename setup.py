@@ -6,9 +6,9 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Cemotion",
-    version="2.1.0",
+    version="2.1.1",
     author="Cyberbolt",
-    author_email="735245473@qq.com",
+    author_email="dtconlyone@gmail.com",
     description="基于 BERT 的中文情感倾向分析库，用于中文文本分类、中文情感分析",
     long_description=long_description,
     long_description_content_type="text/markdown",    
