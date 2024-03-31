@@ -24,6 +24,6 @@ setuptools.setup(
         'requests>=2.25.1',
         'numpy>=1.19.5',
         'torch>=2.0.0',
-        'transformers==4.39.2',
+        'transformers>=4.39.2',
     ]    
 )
