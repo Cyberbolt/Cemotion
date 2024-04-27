@@ -13,6 +13,12 @@ from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 from modelscope.preprocessors import TokenClassificationTransformersPreprocessor
 from cemotion.download import download_from_url
+import warnings
+
+# 全局忽略 UserWarning 类型的警告
+warnings.simplefilter(action='ignore', category=UserWarning)
+# 全局忽略 FutureWarning 类型的警告
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 log.getLogger('modelscope').setLevel(log.CRITICAL)
 logging.set_verbosity_error()
