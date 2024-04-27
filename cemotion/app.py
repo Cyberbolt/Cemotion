@@ -4,13 +4,17 @@
 '''
 
 import os
-
+import logging as log
 import numpy as np
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification, logging
-
+from modelscope.models import Model
+from modelscope.pipelines import pipeline
+from modelscope.utils.constant import Tasks
+from modelscope.preprocessors import TokenClassificationTransformersPreprocessor
 from cemotion.download import download_from_url
 
+log.getLogger('modelscope').setLevel(logging.CRITICAL)
 logging.set_verbosity_error()
 tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
 
@@ -107,3 +111,38 @@ class Cemotion:
             predict = torch.sigmoid(outputs).cpu().detach().numpy()[0]
             predictions.append(predict)
         return predictions
+    
+    def words(self,sentence):
+
+
+        return 
+
+
+
+
+class Cegmentor:
+    def __init__(self, model_id):
+        # 加载模型和分词器
+        self.model = Model.from_pretrained(model_id)
+        self.tokenizer = TokenClassificationTransformersPreprocessor(self.model.model_dir)
+        self.pipeline = pipeline(task=Tasks.token_classification, model=self.model, preprocessor=self.tokenizer)
+
+    def segment(self, text):
+        # 使用pipeline进行分词
+        result = self.pipeline(input=text)
+        
+        # 只提取分词结果
+        words = [output['span'] for output in result['output']]
+        
+        # 返回分词结果
+        return words
+
+    def tag(self, text):
+        # 使用pipeline进行分词和词性标注
+        result = self.pipeline(input=text)
+        # 只提取分词结果和词性标注
+        tags = [output['type'] for output in result['output']]
+        words = [output['span'] for output in result['output']]
+        
+        # 返回分词结果和词性的元组列表
+        return list(zip(words, tags))
