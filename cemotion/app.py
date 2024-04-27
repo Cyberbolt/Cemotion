@@ -14,7 +14,7 @@ from modelscope.utils.constant import Tasks
 from modelscope.preprocessors import TokenClassificationTransformersPreprocessor
 from cemotion.download import download_from_url
 
-log.getLogger('modelscope').setLevel(logging.CRITICAL)
+log.getLogger('modelscope').setLevel(log.CRITICAL)
 logging.set_verbosity_error()
 tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
 
@@ -112,10 +112,6 @@ class Cemotion:
             predictions.append(predict)
         return predictions
     
-    def words(self,sentence):
-
-
-        return 
 
 
 
@@ -128,6 +124,15 @@ class Cegmentor:
         self.pipeline = pipeline(task=Tasks.token_classification, model=self.model, preprocessor=self.tokenizer)
 
     def segment(self, text):
+        # 检查输入是否为列表
+        if isinstance(text, list):
+            # 对列表中的每个文本执行分词，并返回分词结果的列表
+            return [self._segment_single(t) for t in text]
+        else:
+            # 执行单个文本的分词
+            return self._segment_single(text)
+
+    def _segment_single(self, text):
         # 使用pipeline进行分词
         result = self.pipeline(input=text)
         
