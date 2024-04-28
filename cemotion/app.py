@@ -4,13 +4,23 @@
 '''
 
 import os
-
+import logging as log
 import numpy as np
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification, logging
-
+from modelscope.models import Model
+from modelscope.pipelines import pipeline
+from modelscope.utils.constant import Tasks
+from modelscope.preprocessors import TokenClassificationTransformersPreprocessor
 from cemotion.download import download_from_url
+import warnings
 
+# 全局忽略 UserWarning 类型的警告
+warnings.simplefilter(action='ignore', category=UserWarning)
+# 全局忽略 FutureWarning 类型的警告
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
+log.getLogger('modelscope').setLevel(log.CRITICAL)
 logging.set_verbosity_error()
 tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
 
@@ -107,3 +117,43 @@ class Cemotion:
             predict = torch.sigmoid(outputs).cpu().detach().numpy()[0]
             predictions.append(predict)
         return predictions
+    
+
+
+
+
+class Cegmentor:
+    def __init__(self, model_id):
+        # 加载模型和分词器
+        self.model = Model.from_pretrained(model_id)
+        self.tokenizer = TokenClassificationTransformersPreprocessor(self.model.model_dir)
+        self.pipeline = pipeline(task=Tasks.token_classification, model=self.model, preprocessor=self.tokenizer)
+
+    def segment(self, text):
+        # 检查输入是否为列表
+        if isinstance(text, list):
+            # 对列表中的每个文本执行分词，并返回分词结果的列表
+            return [self._segment_single(t) for t in text]
+        else:
+            # 执行单个文本的分词
+            return self._segment_single(text)
+
+    def _segment_single(self, text):
+        # 使用pipeline进行分词
+        result = self.pipeline(input=text)
+        
+        # 只提取分词结果
+        words = [output['span'] for output in result['output']]
+        
+        # 返回分词结果
+        return words
+
+    def tag(self, text):
+        # 使用pipeline进行分词和词性标注
+        result = self.pipeline(input=text)
+        # 只提取分词结果和词性标注
+        tags = [output['type'] for output in result['output']]
+        words = [output['span'] for output in result['output']]
+        
+        # 返回分词结果和词性的元组列表
+        return list(zip(words, tags))
