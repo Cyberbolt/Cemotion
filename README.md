@@ -49,17 +49,17 @@ pip install cemotion
 ### Usage
 
 #### Chinese Sentiment Classification
-
+Analyze by text string
 ```python
-# Analyze by text string
+
 from cemotion import Cemotion
 
 str_text1 = '配置顶级，不解释，手机需要的各个方面都很完美'
 str_text2 = '院线看电影这么多年以来，这是我第一次看电影睡着了。简直是史上最大烂片！没有之一！侮辱智商！大家小心警惕！千万不要上当！再也不要看了！'
 
 c = Cemotion()
-print(f'"{str_text1}"\n预测值:{c.predict(str_text1)}', '\n')
-print(f'"{str_text2}"\n预测值:{c.predict(str_text2)}' , '\n')
+print(f'"{str_text1}"\nPredicted value:{c.predict(str_text1)}'\n')
+print(f'"{str_text2}"\nPredicted value:{c.predict(str_text2)}'\n')
 ```
 
 
@@ -73,10 +73,10 @@ print(f'"{str_text2}"\n预测值:{c.predict(str_text2)}' , '\n')
 ```
 
 
-
+Using a list for batch analysis
 
 ```python
-# Using a list for batch analysis
+
 from cemotion import Cemotion
 
 list_text = ['内饰蛮年轻的，而且看上去质感都蛮好，貌似本田所有车都有点相似，满高档的！',
@@ -95,9 +95,9 @@ print(c.predict(list_text))
 
 
 #### Chinese text segmentation
-
+Segmentation of a single text
 ```python
-# Segmentation of a single text
+
 from cemotion import Cegmentor
 
 text = '这辆车的内饰设计非常现代，而且用料考究，给人一种豪华的感觉。'
@@ -114,9 +114,9 @@ print(segmentation_result)
 ```
 
 
-
+Using a list for batch Chinese text segmentation
 ```python
-# Using a list for batch Chinese text segmentation
+
 from cemotion import Cegmentor
 
 text = '这辆车的内饰设计非常现代，而且用料考究，给人一种豪华的感觉。'
