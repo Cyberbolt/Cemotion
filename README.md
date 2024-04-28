@@ -1,17 +1,17 @@
-cemotion 是 Python 下的中文 NLP 库，可以进行中文情感倾向分析、通用领域中文分词。
+Cemotion 是 Python 下的中文 NLP 库，可以进行中文情感倾向分析、通用领域中文分词。
 
-cemotion 2.0 模型使用 BERT (Bidirectional Encoder Representations from Transformers) 训练得到，会为中文文本返回 0～1 之间的情感倾向置信度 (情感极性 0 为消极，1 为积极)。
+Cemotion 2.0 模型使用 BERT (Bidirectional Encoder Representations from Transformers) 训练得到，会为中文文本返回 0～1 之间的情感倾向置信度 (情感极性 0 为消极，1 为积极)。
 
-此外，新加入的Cegementor中文分词类采用BAStructBERT通用领域中文分词模型对文本按语义进行分词。
+此外，新加入的 Cegementor 中文分词类采用 BAStructBERT 通用领域中文分词模型对文本按语义进行分词。
 
-使用 cemotion，您将能够：
+使用 Cemotion，您将能够：
 - 批量分析中文文本的情感
 - 批量进行中文文本分词
 - 部署至 Linux、macOS、Windows 等生产环境中 (支持 Apple Silicon)
 
 该模块依赖于 PyTorch 环境（会自动安装），要求 Python 3.8 或更高版本，较老的机器可能无法运行。
 
-注意，cemotion 会自动调用 NVIDIA 和 Apple Silicon 的 GPU。如果没有 GPU，则使用 CPU 推理。
+注意，Cemotion 会自动调用 NVIDIA 和 Apple Silicon 的 GPU。如果没有 GPU，则使用 CPU 推理。
 
 ### 安装方法
 
@@ -31,7 +31,7 @@ python -m venv venv #创建虚拟环境
 venv\Scripts\activate #激活虚拟环境
 ```
 
-2.安装cemotion库，依次输入
+2.安装Cemotion库，依次输入
 
 ```bash
 pip install --upgrade pip
@@ -89,7 +89,7 @@ print(c.predict(list_text))
 
 
 
-```
+```python
 #单个文本进行分词
 from cemotion import Cegmentor
 
@@ -108,7 +108,7 @@ print(segmentation_result)
 
 
 
-```
+```python
 from cemotion import Cegmentor
 
 text = '这辆车的内饰设计非常现代，而且用料考究，给人一种豪华的感觉。'
