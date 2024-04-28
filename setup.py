@@ -9,7 +9,7 @@ setuptools.setup(
     version="2.1.1",
     author="Cyberbolt",
     author_email="dtconlyone@gmail.com",
-    description="基于 BERT 的中文情感倾向分析库，用于中文文本分类、中文情感分析",
+    description="Cemotion 是 Python 下的中文 NLP 库，可以进行中文情感倾向分析、通用领域中文分词。",
     long_description=long_description,
     long_description_content_type="text/markdown",    
     packages=setuptools.find_packages(),
@@ -24,6 +24,7 @@ setuptools.setup(
         'requests>=2.25.1',
         'numpy>=1.19.5',
         'torch>=2.0.0',
-        'transformers==4.24.0',
+        'transformers>=4.24.0',
+        'modelscope>=1.14.0',
     ]    
 )
