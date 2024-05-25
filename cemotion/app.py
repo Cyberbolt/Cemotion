@@ -123,8 +123,9 @@ class Cemotion:
 
 
 class Cegmentor:
-    def __init__(self, model_id):
+    def __init__(self):
         # 加载模型和分词器
+        model_id = 'damo/nlp_structbert_word-segmentation_chinese-base'
         self.model = Model.from_pretrained(model_id)
         self.tokenizer = TokenClassificationTransformersPreprocessor(self.model.model_dir)
         self.pipeline = pipeline(task=Tasks.token_classification, model=self.model, preprocessor=self.tokenizer)
