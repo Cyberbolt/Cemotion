@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Cemotion",
-    version="2.1.1",
+    version="2.2.1",
     author="Cyberbolt",
     author_email="dtconlyone@gmail.com",
     description="Cemotion 是 Python 下的中文 NLP 库，可以进行中文情感倾向分析、通用领域中文分词。",
