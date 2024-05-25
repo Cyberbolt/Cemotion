@@ -202,7 +202,7 @@ pip install cemotion
 
 #### 中文情感分类
 
-使用列表进行批量分析
+单个文本进行分析
 
 ```python
 from cemotion import Cemotion
