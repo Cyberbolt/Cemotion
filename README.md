@@ -102,8 +102,7 @@ from cemotion import Cegmentor
 
 text = '这辆车的内饰设计非常现代，而且用料考究，给人一种豪华的感觉。'
 
-model_id = 'damo/nlp_structbert_word-segmentation_chinese-base'
-segmenter = Cegmentor(model_id)
+segmenter = Cegmentor()
 segmentation_result = segmenter.segment(text)
 print(segmentation_result)
 ```
@@ -126,8 +125,8 @@ list_text = [
     '他从小就对天文学充满好奇，立志要成为一名宇航员，探索宇宙的奥秘。',
     '这种新型的太阳能电池板转换效率高，而且环保，有望在未来得到广泛应用。'
 ]
-model_id = 'damo/nlp_structbert_word-segmentation_chinese-base'
-segmenter = Cegmentor(model_id)
+
+segmenter = Cegmentor()
 segmentation_result = segmenter.segment(list_text)
 print(segmentation_result)
 ```
