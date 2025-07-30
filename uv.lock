@@ -1,0 +1,36 @@
+version = 1
+revision = 1
+requires-python = ">=3.7,<3.11"
+
+[manifest]
+members = [
+    "cemotion",
+]
+
+[[package]]
+name = "tqdm"
+version = ">=4.64.1"
+
+[[package]]
+name = "joblib"
+version = ">=1.0.0"
+
+[[package]]
+name = "requests"
+version = ">=2.25.1"
+
+[[package]]
+name = "numpy"
+version = ">=1.19.5"
+
+[[package]]
+name = "torch"
+version = ">=2.0.0"
+
+[[package]]
+name = "transformers"
+version = ">=4.24.0"
+
+[[package]]
+name = "modelscope"
+version = ">=1.14.0"
