@@ -1,27 +1,29 @@
 [project]
 name = "Cemotion"
-version = "2.2.1"
+version = "2.2.3"
 description = "Cemotion 是 Python 下的中文 NLP 库，可以进行中文情感倾向分析、通用领域中文分词。"
-authors = [
-    { name = "Cyberbolt", email = "dtconlyone@gmail.com" }
-]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.7,<3.11"
 
-[project.urls]
-Homepage = "https://github.com/Cyberbolt/Cemotion"
-
+# 依赖项必须直接放在[project]下面，作为数组格式
 dependencies = [
     "tqdm>=4.64.1",
     "joblib>=1.0.0",
     "requests>=2.25.1",
     "numpy>=1.19.5",
-    "torch>=2.0.0,<2.1.0",  # Adjusted for Python compatibility
+    "torch>=2.0.0,<2.1.0",
     "transformers>=4.24.0",
     "modelscope>=1.14.0"
 ]
 
+[project.urls]
+# 这个区域只放URL相关配置
+Homepage = "https://github.com/Cyberbolt/Cemotion"
+# 可以在这里添加其他URL，比如文档地址等
+# Documentation = "https://example.com/docs"
+
 [build-system]
 requires = ["uv>=0.1.0"]
 build-backend = "uv.build"
+    
