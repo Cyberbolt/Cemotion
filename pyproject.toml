@@ -12,15 +12,15 @@ requires-python = ">=3.7,<3.11"
 [project.urls]
 Homepage = "https://github.com/Cyberbolt/Cemotion"
 
-[project.dependencies]
-tqdm = ">=4.64.1"
-joblib = ">=1.0.0"
-requests = ">=2.25.1"
-numpy = ">=1.19.5"
-# Updated torch version constraint to be compatible with Python <3.11
-torch = ">=2.0.0,<2.1.0"
-transformers = ">=4.24.0"
-modelscope = ">=1.14.0"
+dependencies = [
+    "tqdm>=4.64.1",
+    "joblib>=1.0.0",
+    "requests>=2.25.1",
+    "numpy>=1.19.5",
+    "torch>=2.0.0,<2.1.0",  # Adjusted for Python compatibility
+    "transformers>=4.24.0",
+    "modelscope>=1.14.0"
+]
 
 [build-system]
 requires = ["uv>=0.1.0"]
